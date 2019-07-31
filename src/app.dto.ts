@@ -1,14 +1,14 @@
-import { Trim, ToInt } from 'class-sanitizer';
+import { sanitize, Trim, ToInt } from 'class-sanitizer';
 import { IsNotEmpty, IsString, IsNumberString } from 'class-validator';
 
 export class AppDto {
-  @Trim() // <--- Trim
+  @Trim()
   @IsString()
   @IsNotEmpty()
-  public readonly string: string; // example: ' value ' to 'value'
+  public readonly string: string;
 
   @ToInt()
   @IsNumberString()
   @IsNotEmpty()
-  public readonly number: any; // example: '1' to 1
+  public readonly number: number;
 }
